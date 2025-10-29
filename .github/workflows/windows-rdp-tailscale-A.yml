@@ -101,13 +101,6 @@ jobs:
           Start-Service Tailscale -ErrorAction SilentlyContinue
           & "C:\Program Files\Tailscale\tailscale.exe" version
 
-      - name: ⬇️ Download and Install MuMu Emulator
-        run: |
-          $url = "https://a11.gdl.netease.com/MuMu_5.0.7_gw-win-download_all_1761100336.exe?n=MuMu_5.0.7_sretC5C.exe&key1=227287be7768994e546dfd8e79b76e4a&key2=6901b102"
-          $output = "$env:TEMP\MumuInstaller.exe"
-          Invoke-WebRequest -Uri $url -OutFile $output -UseBasicParsing
-          Start-Process -FilePath $output -ArgumentList "/quiet" -Wait
-
       - name: 🌐 Set default homepage on Firefox, Edge, Chrome
         run: |
           $homepage = "https://www.toolboxlap.xyz"
